@@ -9,7 +9,11 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-         
+          WebsafeSvg.asset(
+            "assets/icons/bg.svg",
+            fit: BoxFit.contain,
+            width: double.infinity,
+            height: double.infinity,
 
           ),
         ],
