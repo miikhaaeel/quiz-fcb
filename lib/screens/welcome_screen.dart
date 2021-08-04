@@ -19,7 +19,7 @@ class WelcomeScreen extends StatelessWidget {
                   Spacer(flex: 2),
                   Text(
                     "Let's Play Quiz",
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   Text('Enter your informations below'),
@@ -41,7 +41,9 @@ class WelcomeScreen extends StatelessWidget {
                       padding: EdgeInsets.all(kDefaultPadding * 0.75),
                       decoration: BoxDecoration(
                           gradient: kPrimaryGradient,
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          )),
                       child: Text(
                         'Start Quiz',
                         style: Theme.of(context)
