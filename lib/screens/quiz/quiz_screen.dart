@@ -33,6 +33,7 @@ class QuizScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ProgressBar(),
                   SizedBox(height: kDefaultPadding),
@@ -65,26 +66,68 @@ class QuizScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Text(
-                          sample_data[0]['question'],
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6!
-                              .copyWith(color: kBlackColor),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: kDefaultPadding),
-                          padding: EdgeInsets.all(kDefaultPadding),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: kGrayColor),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        )
+                        QuestionCard(),
+                        OptionCard()
                       ],
                     ),
                   )
                 ],
               ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class QuestionCard extends StatelessWidget {
+  const QuestionCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      sample_data[0]['question'],
+      style: Theme.of(context)
+          .textTheme
+          .headline6!
+          .copyWith(color: kBlackColor),
+    );
+  }
+}
+
+class OptionCard extends StatelessWidget {
+  const OptionCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: kDefaultPadding),
+      padding: EdgeInsets.all(kDefaultPadding),
+      decoration: BoxDecoration(
+        border: Border.all(color: kGrayColor),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            '1. Test',
+            style: TextStyle(
+              color: kGrayColor,
+              fontSize: 16,
+            ),
+          ),
+          Container(
+            height: 25,
+            width: 25,
+            decoration: BoxDecoration(
+              border: Border.all(color: kGrayColor),
+              borderRadius: BorderRadius.circular(50),
             ),
           )
         ],
