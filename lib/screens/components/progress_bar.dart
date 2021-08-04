@@ -20,6 +20,7 @@ class ProgressBar extends StatelessWidget {
         init: QuestionController(),
         builder: (controller) {
           var contValue = controller.animation!.value;
+         // print(contValue);
           return Stack(
             children: [
               LayoutBuilder(
