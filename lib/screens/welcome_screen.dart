@@ -64,7 +64,3 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
-
-// Container(
- //   decoration: BoxDecoration(
- //     image: DecorationImage(
