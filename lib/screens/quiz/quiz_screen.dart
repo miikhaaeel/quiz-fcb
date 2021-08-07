@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quiz_fcb/constants.dart';
+import 'package:quiz_fcb/controllers/question_controller.dart';
 import 'package:quiz_fcb/screens/components/progress_bar.dart';
 import 'package:quiz_fcb/screens/components/question_card.dart';
 import 'package:websafe_svg/websafe_svg.dart';
@@ -7,6 +9,7 @@ import 'package:websafe_svg/websafe_svg.dart';
 class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final _questionController = Get.put(QuestionController());
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -34,12 +37,14 @@ class QuizScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                   child: ProgressBar(),
                 ),
                 SizedBox(height: kDefaultPadding),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                   child: RichText(
                     text: TextSpan(
                       text: 'Question 1',
@@ -65,7 +70,10 @@ class QuizScreen extends StatelessWidget {
                 SizedBox(height: kDefaultPadding),
                 Expanded(
                   child: PageView.builder(
-                    itemBuilder: (context, index) => QuestionCard(),
+                    itemCount: _questionController.questions.length,
+                    itemBuilder: (context, index) => QuestionCard(
+                      question: _questionController.questions[index],
+                    ),
                   ),
                 )
               ],

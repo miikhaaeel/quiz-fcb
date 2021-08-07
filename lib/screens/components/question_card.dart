@@ -4,9 +4,9 @@ import 'package:quiz_fcb/models/Questions.dart';
 import 'package:quiz_fcb/screens/components/option_card.dart';
 
 class QuestionCard extends StatelessWidget {
-  const QuestionCard({
-    Key? key,
-  }) : super(key: key);
+  final Question question;
+
+  QuestionCard({required this.question});
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +23,21 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            sample_data[0]['question'],
+            question.question!,
             style: Theme.of(context)
                 .textTheme
                 .headline6!
                 .copyWith(color: kBlackColor),
           ),
           SizedBox(height: kDefaultPadding / 2),
-          OptionCard(),
-          OptionCard(),
-          OptionCard(),
-          OptionCard(),
+          // ...List.generate(
+          //   question.options!.length,
+          //   (index) => OptionCard(
+          //     index: index,
+          //     text: question.options![index],
+          //     onPressed: () {},
+          //   ),
+          // ),
         ],
       ),
     );

@@ -32,4 +32,10 @@ const List sample_data = [
     "options": ['Cin', 'Count>>', 'Cout', 'Output>>'],
     "answer_index": 2,
   },
+  {
+    "id": 5,
+    "question": "Who is the Greatest footballer of all time",
+    "options": ['Messi', 'Pele', 'Maradona', 'Ronaldo'],
+    "answer_index": 1,
+  },
 ];
