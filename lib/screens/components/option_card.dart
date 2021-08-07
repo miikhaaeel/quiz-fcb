@@ -23,7 +23,7 @@ class OptionCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '${index! + 1} $text ',
+              "${index} $text",
               style: TextStyle(
                 color: kGrayColor,
                 fontSize: 16,

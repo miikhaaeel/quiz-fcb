@@ -23,21 +23,17 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            question.question!,
+           question.question!,
             style: Theme.of(context)
                 .textTheme
                 .headline6!
                 .copyWith(color: kBlackColor),
           ),
           SizedBox(height: kDefaultPadding / 2),
-          // ...List.generate(
-          //   question.options!.length,
-          //   (index) => OptionCard(
-          //     index: index,
-          //     text: question.options![index],
-          //     onPressed: () {},
-          //   ),
-          // ),
+          OptionCard(),
+          OptionCard(),
+          OptionCard(),
+          OptionCard(),
         ],
       ),
     );
